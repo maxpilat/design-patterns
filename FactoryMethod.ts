@@ -3,7 +3,7 @@ enum EmployeeTypes {
   Tester,
 }
 
-class Employee {
+abstract class Employee {
   name: string;
   type!: EmployeeTypes;
 
