@@ -1,47 +1,59 @@
-enum EmployeeTypes {
-  Developer,
-  Tester,
-}
-
-abstract class Employee {
-  name: string;
-  type!: EmployeeTypes;
-
-  constructor(name: string) {
-    this.name = name;
+namespace FactoryMethod {
+  export enum EmployeeTypes {
+    Developer,
+    Tester,
   }
-}
 
-class Developer extends Employee {
-  constructor(name: string) {
-    super(name);
-    this.type = EmployeeTypes.Developer;
+  export abstract class Employee {
+    name: string;
+    type!: EmployeeTypes;
+
+    constructor(name: string) {
+      this.name = name;
+    }
   }
-}
 
-class Tester extends Employee {
-  constructor(name: string) {
-    super(name);
-    this.type = EmployeeTypes.Tester;
+  export class Developer extends Employee {
+    constructor(name: string) {
+      super(name);
+      this.type = EmployeeTypes.Developer;
+    }
   }
-}
 
-class EmployeeFactory {
-  static create(name: string, type: EmployeeTypes) {
-    switch (type) {
-      case EmployeeTypes.Developer:
-        return new Developer(name);
-      case EmployeeTypes.Tester:
-        return new Tester(name);
-      default:
-        throw new Error('Invalid EmployeeType');
+  export class Tester extends Employee {
+    constructor(name: string) {
+      super(name);
+      this.type = EmployeeTypes.Tester;
+    }
+  }
+
+  export class EmployeeFactory {
+    static create(name: string, type: EmployeeTypes) {
+      switch (type) {
+        case EmployeeTypes.Developer:
+          return new Developer(name);
+        case EmployeeTypes.Tester:
+          return new Tester(name);
+        default:
+          throw new Error('Invalid EmployeeType');
+      }
     }
   }
 }
 
-const employees: Employee[] = [];
+const employees: FactoryMethod.Employee[] = [];
 
-employees.push(EmployeeFactory.create('John', EmployeeTypes.Developer));
-employees.push(EmployeeFactory.create('Sam', EmployeeTypes.Tester));
+employees.push(
+  FactoryMethod.EmployeeFactory.create(
+    'John',
+    FactoryMethod.EmployeeTypes.Developer
+  )
+);
+employees.push(
+  FactoryMethod.EmployeeFactory.create(
+    'Sam',
+    FactoryMethod.EmployeeTypes.Tester
+  )
+);
 
 console.log(employees);
