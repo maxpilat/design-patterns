@@ -27,7 +27,7 @@ class Tester extends Employee {
 }
 
 class EmployeeFactory {
-  static create = (name: string, type: EmployeeTypes) => {
+  static create(name: string, type: EmployeeTypes) {
     switch (type) {
       case EmployeeTypes.Developer:
         return new Developer(name);
@@ -36,7 +36,7 @@ class EmployeeFactory {
       default:
         throw new Error('Invalid EmployeeType');
     }
-  };
+  }
 }
 
 const employees: Employee[] = [];
