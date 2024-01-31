@@ -16,13 +16,13 @@ namespace Builder {
       this.user = new User(name);
     }
 
-    setCity(city: string) {
-      this.user.city = city;
+    setAge(age: number) {
+      this.user.age = age;
       return this;
     }
 
-    setAge(age: number) {
-      this.user.age = age;
+    setCity(city: string) {
+      this.user.city = city;
       return this;
     }
 
