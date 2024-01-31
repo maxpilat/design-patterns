@@ -1,4 +1,4 @@
-namespace Bulder {
+namespace Builder {
   class User {
     name: string;
     age!: number;
