@@ -19,6 +19,6 @@ namespace Prototype {
   const proto2 = proto1.clone();
   proto2.greeting = "Hi";
 
-  proto1.greet();
-  proto2.greet();
+  proto1.greet(); // "Hello"
+  proto2.greet(); // "Hi"
 }

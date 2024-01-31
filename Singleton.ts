@@ -3,7 +3,7 @@ namespace Singleton {
     static instance: Singleton;
 
     private constructor() {
-      console.log('Singleton instance created');
+      console.log("Singleton instance created");
     }
 
     static getInstance() {
@@ -18,5 +18,5 @@ namespace Singleton {
   const instance1 = Singleton.getInstance();
   const instance2 = Singleton.getInstance();
 
-  console.log(instance1 === instance2);
+  console.log(instance1 === instance2); // true
 }

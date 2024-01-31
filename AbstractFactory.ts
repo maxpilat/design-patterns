@@ -48,8 +48,8 @@ namespace AbstractFactory {
 
   const employees: Employee[] = [];
 
-  employees.push(developerFactory.createEmployee('Mike'));
-  employees.push(testerFactory.createEmployee('Calvin'));
+  employees.push(developerFactory.createEmployee("Mike"));
+  employees.push(testerFactory.createEmployee("Calvin"));
 
-  console.log(employees);
+  console.log(employees); // [Developer { name: 'Mike', type: 0 }, Tester { name: 'Calvin', type: 1 }]
 }

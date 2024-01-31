@@ -35,17 +35,15 @@ namespace FactoryMethod {
         case EmployeeTypes.Tester:
           return new Tester(name);
         default:
-          throw new Error('Invalid EmployeeType');
+          throw new Error("Invalid EmployeeType");
       }
     }
   }
 
   const employees: Employee[] = [];
 
-  employees.push(
-    EmployeeFactory.createEmployee('John', EmployeeTypes.Developer)
-  );
-  employees.push(EmployeeFactory.createEmployee('Sam', EmployeeTypes.Tester));
+  employees.push(EmployeeFactory.createEmployee("John", EmployeeTypes.Developer));
+  employees.push(EmployeeFactory.createEmployee("Sam", EmployeeTypes.Tester));
 
-  console.log(employees);
+  console.log(employees); // [Developer { name: 'John', type: 0 }, Tester { name: 'Sam', type: 1 }]
 }
