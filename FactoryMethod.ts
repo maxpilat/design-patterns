@@ -1,10 +1,10 @@
 namespace FactoryMethod {
-  export enum EmployeeTypes {
+  enum EmployeeTypes {
     Developer,
     Tester,
   }
 
-  export abstract class Employee {
+  abstract class Employee {
     name: string;
     type!: EmployeeTypes;
 
@@ -13,22 +13,22 @@ namespace FactoryMethod {
     }
   }
 
-  export class Developer extends Employee {
+  class Developer extends Employee {
     constructor(name: string) {
       super(name);
       this.type = EmployeeTypes.Developer;
     }
   }
 
-  export class Tester extends Employee {
+  class Tester extends Employee {
     constructor(name: string) {
       super(name);
       this.type = EmployeeTypes.Tester;
     }
   }
 
-  export class EmployeeFactory {
-    static create(name: string, type: EmployeeTypes) {
+  class EmployeeFactory {
+    static createEmployee(name: string, type: EmployeeTypes) {
       switch (type) {
         case EmployeeTypes.Developer:
           return new Developer(name);
@@ -39,21 +39,13 @@ namespace FactoryMethod {
       }
     }
   }
+
+  const employees: Employee[] = [];
+
+  employees.push(
+    EmployeeFactory.createEmployee('John', EmployeeTypes.Developer)
+  );
+  employees.push(EmployeeFactory.createEmployee('Sam', EmployeeTypes.Tester));
+
+  console.log(employees);
 }
-
-const employees: FactoryMethod.Employee[] = [];
-
-employees.push(
-  FactoryMethod.EmployeeFactory.create(
-    'John',
-    FactoryMethod.EmployeeTypes.Developer
-  )
-);
-employees.push(
-  FactoryMethod.EmployeeFactory.create(
-    'Sam',
-    FactoryMethod.EmployeeTypes.Tester
-  )
-);
-
-console.log(employees);
