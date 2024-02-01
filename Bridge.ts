@@ -31,6 +31,7 @@ namespace Bridge {
       this.radius = radius;
       this.drawAPI = drawingAPI;
     }
+
     draw() {
       this.drawAPI.drawCircle(this.x, this.y, this.radius);
     }
