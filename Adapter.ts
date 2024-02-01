@@ -1,9 +1,9 @@
 namespace Adapter {
-  interface Engine {
+  interface IEngine {
     simpleStart(): void;
   }
 
-  class EngineV4 implements Engine {
+  class EngineV4 implements IEngine {
     simpleStart() {
       console.log('V4 started');
     }
@@ -15,7 +15,7 @@ namespace Adapter {
     }
   }
 
-  class EngineV8Adapter implements Engine {
+  class EngineV8Adapter implements IEngine {
     private engine: EngineV4;
 
     constructor(engine: EngineV4) {
@@ -26,7 +26,7 @@ namespace Adapter {
     }
   }
 
-  function clientCode(engine: Engine) {
+  function clientCode(engine: IEngine) {
     engine.simpleStart();
   }
 
