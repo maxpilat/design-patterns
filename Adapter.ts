@@ -1,6 +1,6 @@
 namespace Adapter {
   interface Engine {
-    simpleStart: () => void;
+    simpleStart(): void;
   }
 
   class EngineV4 implements Engine {
