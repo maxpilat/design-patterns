@@ -21,6 +21,7 @@ namespace Adapter {
     constructor(engine: EngineV4) {
       this.engine = engine;
     }
+
     simpleStart() {
       this.engine.simpleStart();
     }
