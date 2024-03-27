@@ -3,7 +3,7 @@ namespace Singleton {
     static instance: Singleton;
 
     private constructor() {
-      console.log("Singleton instance created");
+      console.log('Singleton instance created');
     }
 
     static getInstance() {

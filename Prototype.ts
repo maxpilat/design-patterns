@@ -3,7 +3,7 @@ namespace Prototype {
     greeting: string;
 
     constructor() {
-      this.greeting = "Hello";
+      this.greeting = 'Hello';
     }
 
     greet() {
@@ -17,7 +17,7 @@ namespace Prototype {
 
   const proto1 = new Prototype();
   const proto2 = proto1.clone();
-  proto2.greeting = "Hi";
+  proto2.greeting = 'Hi';
 
   proto1.greet(); // "Hello"
   proto2.greet(); // "Hi"

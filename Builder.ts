@@ -31,7 +31,7 @@ namespace Builder {
     }
   }
 
-  const user = new UserBuilder("Alex").setAge(24).build();
+  const user = new UserBuilder('Alex').setAge(24).build();
 
   console.log(user); // User { name: 'Alex', age: 24 }
 }
