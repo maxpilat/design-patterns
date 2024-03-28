@@ -1,12 +1,12 @@
 namespace Composite {
-  interface Item {
+  interface IItem {
     getPrice: () => number;
   }
 
-  class Box implements Item {
-    private items: Item[] = [];
+  class Box implements IItem {
+    private items: IItem[] = [];
 
-    addItems(...items: Item[]) {
+    addItems(...items: IItem[]) {
       items.forEach((item) => this.items.push(item));
     }
 
@@ -18,7 +18,7 @@ namespace Composite {
     }
   }
 
-  class Product implements Item {
+  class Product implements IItem {
     private price: number;
 
     constructor(price: number) {
