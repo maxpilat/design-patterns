@@ -1,6 +1,6 @@
 namespace Composite {
   interface IItem {
-    getPrice: () => number;
+    getPrice(): number;
   }
 
   class Box implements IItem {
