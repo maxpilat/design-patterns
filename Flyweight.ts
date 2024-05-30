@@ -57,19 +57,21 @@ namespace Flyweight {
     }
   }
 
-  const forest = new Forest();
+  (function clientCode() {
+    const forest = new Forest();
 
-  forest.plantTree(1, 1, {
-    name: 'Oak',
-    color: 'green',
-    texture: 'Rough',
-  });
-  forest.plantTree(2, 3, {
-    name: 'Pine',
-    color: 'Dark Green',
-    texture: 'Smooth',
-  });
-  forest.plantTree(3, 5, { name: 'Oak', color: 'green', texture: 'Rough' }); // an existing type is used
+    forest.plantTree(1, 1, {
+      name: 'Oak',
+      color: 'green',
+      texture: 'Rough',
+    });
+    forest.plantTree(2, 3, {
+      name: 'Pine',
+      color: 'Dark Green',
+      texture: 'Smooth',
+    });
+    forest.plantTree(3, 5, { name: 'Oak', color: 'green', texture: 'Rough' }); // an existing type is used
 
-  forest.draw();
+    forest.draw();
+  })();
 }

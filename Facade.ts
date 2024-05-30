@@ -58,9 +58,11 @@ namespace Facade {
     }
   }
 
-  const bookFetcher = new Fetcher();
+  (function clientCode() {
+    const bookFetcher = new Fetcher();
 
-  const books = bookFetcher.fetch(DataTypes.BOOKS);
+    const books = bookFetcher.fetch(DataTypes.BOOKS);
 
-  console.log(books); // ['book1', 'book2', 'book3']
+    console.log(books); // ['book1', 'book2', 'book3']
+  })();
 }

@@ -22,9 +22,11 @@ namespace ProxyPattern {
     }
   }
 
-  const service = new OriginalService();
+  (function clientCode() {
+    const service = new OriginalService();
 
-  const proxy = new ProxyService(service);
+    const proxy = new ProxyService(service);
 
-  proxy.request();
+    proxy.request();
+  })();
 }

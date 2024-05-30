@@ -37,9 +37,11 @@ namespace Bridge {
     }
   }
 
-  const circle1 = new Circle(1, 2, 3, new DrawAPI1());
-  const circle2 = new Circle(5, 7, 11, new DrawAPI2());
+  (function clientCode() {
+    const circle1 = new Circle(1, 2, 3, new DrawAPI1());
+    const circle2 = new Circle(5, 7, 11, new DrawAPI2());
 
-  circle1.draw(); // API1: Drawing circle at (1, 2) with radius 3
-  circle2.draw(); // API2: Drawing circle at (5, 7) with radius 11
+    circle1.draw(); // API1: Drawing circle at (1, 2) with radius 3
+    circle2.draw(); // API2: Drawing circle at (5, 7) with radius 11
+  })();
 }

@@ -27,16 +27,18 @@ namespace Adapter {
     }
   }
 
-  function clientCode(engine: IEngine) {
-    engine.simpleStart();
-  }
+  (function clientCode() {
+    function run(engine: IEngine) {
+      engine.simpleStart();
+    }
 
-  const oldEngine = new EngineV4();
-  clientCode(oldEngine); // OK
+    const oldEngine = new EngineV4();
+    run(oldEngine); // OK
 
-  const newEngine = new EngineV8();
-  // clientCode(newEngine); Error
+    const newEngine = new EngineV8();
+    // clientCode(newEngine); Error
 
-  const adapter = new EngineV8Adapter(oldEngine);
-  clientCode(adapter); // OK
+    const adapter = new EngineV8Adapter(oldEngine);
+    run(adapter); // OK
+  })();
 }

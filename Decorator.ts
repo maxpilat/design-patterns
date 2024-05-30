@@ -41,9 +41,11 @@ namespace Decorator {
     }
   }
 
-  const simplePlan = new Plan('Gold');
-  console.log(simplePlan.getDescription()); // Plan Gold
+  (function clientCode() {
+    const simplePlan = new Plan('Gold');
+    console.log(simplePlan.getDescription()); // Plan Gold
 
-  const premiumPlan = new PremiumPlan(simplePlan);
-  console.log(premiumPlan.getDescription()); // Premium Plan Gold
+    const premiumPlan = new PremiumPlan(simplePlan);
+    console.log(premiumPlan.getDescription()); // Premium Plan Gold
+  })();
 }

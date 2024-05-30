@@ -30,10 +30,12 @@ namespace Composite {
     }
   }
 
-  const box1 = new Box();
-  const box2 = new Box();
-  box2.addItems(new Product(10), new Product(25));
-  box1.addItems(box2, new Product(40));
+  (function clientCode() {
+    const box1 = new Box();
+    const box2 = new Box();
+    box2.addItems(new Product(10), new Product(25));
+    box1.addItems(box2, new Product(40));
 
-  console.log(box1.getPrice()); // 75
+    console.log(box1.getPrice()); // 75
+  })();
 }
