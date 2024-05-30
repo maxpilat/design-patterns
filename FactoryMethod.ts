@@ -40,12 +40,14 @@ namespace FactoryMethod {
     }
   }
 
-  const employees: Employee[] = [];
+  (function clientCode() {
+    const employees: Employee[] = [];
 
-  employees.push(
-    EmployeeFactory.createEmployee('John', EmployeeTypes.Developer)
-  );
-  employees.push(EmployeeFactory.createEmployee('Sam', EmployeeTypes.Tester));
+    employees.push(
+      EmployeeFactory.createEmployee('John', EmployeeTypes.Developer)
+    );
+    employees.push(EmployeeFactory.createEmployee('Sam', EmployeeTypes.Tester));
 
-  console.log(employees); // [Developer { name: 'John', type: 0 }, Tester { name: 'Sam', type: 1 }]
+    console.log(employees); // [Developer { name: 'John', type: 0 }, Tester { name: 'Sam', type: 1 }]
+  })();
 }

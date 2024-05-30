@@ -15,8 +15,10 @@ namespace Singleton {
     }
   }
 
-  const instance1 = Singleton.getInstance();
-  const instance2 = Singleton.getInstance();
+  (function clientCode() {
+    const instance1 = Singleton.getInstance();
+    const instance2 = Singleton.getInstance();
 
-  console.log(instance1 === instance2); // true
+    console.log(instance1 === instance2); // true
+  })();
 }

@@ -43,13 +43,15 @@ namespace AbstractFactory {
     }
   }
 
-  const developerFactory = new DeveloperFactory();
-  const testerFactory = new TesterFactory();
+  (function clientCode() {
+    const developerFactory = new DeveloperFactory();
+    const testerFactory = new TesterFactory();
 
-  const employees: Employee[] = [];
+    const employees: Employee[] = [];
 
-  employees.push(developerFactory.createEmployee('Mike'));
-  employees.push(testerFactory.createEmployee('Calvin'));
+    employees.push(developerFactory.createEmployee('Mike'));
+    employees.push(testerFactory.createEmployee('Calvin'));
 
-  console.log(employees); // [Developer { name: 'Mike', type: 0 }, Tester { name: 'Calvin', type: 1 }]
+    console.log(employees); // [Developer { name: 'Mike', type: 0 }, Tester { name: 'Calvin', type: 1 }]
+  })();
 }
