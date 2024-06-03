@@ -18,8 +18,8 @@ namespace Iterator {
   class Iterator implements IIterator<string> {
     private position = 0;
 
-    constructor(private collection: Collection, private isReversed: boolean = false) {
-      if (isReversed) this.position = this.collection.getCount() - 1;
+    constructor(private collection: Collection, private isReverse: boolean = false) {
+      if (isReverse) this.position = this.collection.getCount() - 1;
     }
 
     current(): string {
@@ -28,7 +28,7 @@ namespace Iterator {
 
     next(): string {
       const item = this.collection.getItems()[this.position];
-      this.position += this.isReversed ? -1 : 1;
+      this.position += this.isReverse ? -1 : 1;
       return item;
     }
 
@@ -37,12 +37,12 @@ namespace Iterator {
     }
 
     isValid(): boolean {
-      if (this.isReversed) return this.position >= 0;
+      if (this.isReverse) return this.position >= 0;
       return this.position < this.collection.getCount();
     }
 
     rewind(): void {
-      if (this.isReversed) this.position = this.collection.getCount() - 1;
+      if (this.isReverse) this.position = this.collection.getCount() - 1;
       else this.position = 0;
     }
   }
@@ -67,7 +67,7 @@ namespace Iterator {
     }
 
     getReverseIterator(): IIterator<string> {
-      return new Iterator(this);
+      return new Iterator(this, true);
     }
   }
 
@@ -78,8 +78,12 @@ namespace Iterator {
     collection.addItem("item-2");
     collection.addItem("item-3");
 
-    const iterator = new Iterator(collection);
-
+    const iterator = collection.getIterator();
     while (iterator.isValid()) console.log(iterator.next());
+
+    console.log("");
+
+    const reverseIterator = collection.getReverseIterator();
+    while (reverseIterator.isValid()) console.log(reverseIterator.next());
   })();
 }
