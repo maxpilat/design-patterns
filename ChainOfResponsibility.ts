@@ -24,18 +24,12 @@ namespace ChainOfResponsibility {
 
     help(request: TRequest) {
       if (this.checkRequestType(request.type)) {
-        console.log(
-          `${this.name}: request (${request.message}) from ${request.sender} processed successfully.`
-        );
+        console.log(`${this.name}: request (${request.message}) from ${request.sender} processed successfully.`);
       } else if (this.nextHelper) {
-        console.log(
-          `${this.name}: request (${request.message}) from ${request.sender} transferred to another helper.`
-        );
+        console.log(`${this.name}: request (${request.message}) from ${request.sender} transferred to another helper.`);
         this.nextHelper.help(request);
       } else {
-        console.log(
-          `${this.name}: request (${request.message}) from ${request.sender} cannot be processed.`
-        );
+        console.log(`${this.name}: request (${request.message}) from ${request.sender} cannot be processed.`);
       }
     }
 
@@ -49,27 +43,18 @@ namespace ChainOfResponsibility {
   }
 
   (function clientCode() {
-    const installationHelper = new Helper(
-      'InstallationHelper',
-      RequestType.InstallationAndSetup
-    );
+    const installationHelper = new Helper("InstallationHelper", RequestType.InstallationAndSetup);
 
-    const troubleshootingHelper = new Helper(
-      'TroubleshootingHelper',
-      RequestType.Troubleshooting
-    );
+    const troubleshootingHelper = new Helper("TroubleshootingHelper", RequestType.Troubleshooting);
 
-    const updateHelper = new Helper(
-      'UpdateHelper',
-      RequestType.UpdatesAndPatches
-    );
+    const updateHelper = new Helper("UpdateHelper", RequestType.UpdatesAndPatches);
 
     installationHelper.setNext(troubleshootingHelper);
     troubleshootingHelper.setNext(updateHelper);
 
     const request: TRequest = {
-      sender: 'Sam',
-      message: 'Hi, how can I update your software to the latest version?',
+      sender: "Sam",
+      message: "Hi, how can I update your software to the latest version?",
       type: RequestType.UpdatesAndPatches,
     };
 
