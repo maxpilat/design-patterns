@@ -1,12 +1,12 @@
 namespace Strategy {
   class Context {
-    private strategy: Strategy;
+    private strategy: IStrategy;
 
-    constructor(strategy: Strategy) {
+    constructor(strategy: IStrategy) {
       this.strategy = strategy;
     }
 
-    public setStrategy(strategy: Strategy) {
+    public setStrategy(strategy: IStrategy) {
       this.strategy = strategy;
     }
 
@@ -19,17 +19,17 @@ namespace Strategy {
     }
   }
 
-  interface Strategy {
+  interface IStrategy {
     doAlgorithm(data: string[]): string[];
   }
 
-  class StrategyA implements Strategy {
+  class StrategyA implements IStrategy {
     public doAlgorithm(data: string[]): string[] {
       return data.sort();
     }
   }
 
-  class StrategyB implements Strategy {
+  class StrategyB implements IStrategy {
     public doAlgorithm(data: string[]): string[] {
       return data.reverse();
     }
